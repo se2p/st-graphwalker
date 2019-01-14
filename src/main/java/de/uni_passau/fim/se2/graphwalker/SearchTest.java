@@ -48,9 +48,7 @@ public class SearchTest extends ExecutionContext implements Search {
     // searcharea
     waiter.until(ExpectedConditions.visibilityOfElementLocated(By.id("q")));
     waiter.until(ExpectedConditions.visibilityOfElementLocated(By.id("q"))).clear();
-    waiter
-        .until(ExpectedConditions.visibilityOfElementLocated(By.id("q")))
-        .sendKeys("Gordon Fraser" + Keys.ENTER);
+    enterSearchText();
   }
 
   public void v_BaseURL() {
@@ -69,5 +67,57 @@ public class SearchTest extends ExecutionContext implements Search {
 
   public void v_BrowserStarted() {
     assertNotNull(driver);
+  }
+
+  @Override
+  public void e_logo() {
+    String path = "//*[@id='top']/div/div[3]/div[1]/a/img";
+    waiter.until(ExpectedConditions.presenceOfElementLocated(By.xpath(path))).click();
+  }
+
+  @Override
+  public void e_studierende() {
+    waiter.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Studierende"))).click();
+  }
+
+  @Override
+  public void v_SemesterTerminPlan() {
+    String linkText = "Vorlesungszeiten im Überblick";
+    waiter.until(ExpectedConditions.titleContains("Termine und Fristen"));
+    waiter.until(ExpectedConditions.presenceOfElementLocated(By.linkText(linkText)));
+    String href = driver.findElement(By.linkText(linkText)).getAttribute("href");
+    assertThat(href, containsString("termine-und-fristen/vorlesungszeiten/"));
+  }
+
+  @Override
+  public void e_studSearch() {
+    waiter.until(ExpectedConditions.visibilityOfElementLocated(By.id("q")));
+    waiter.until(ExpectedConditions.visibilityOfElementLocated(By.id("q"))).clear();
+    enterSearchText();
+  }
+
+  private void enterSearchText() {
+    waiter
+        .until(ExpectedConditions.visibilityOfElementLocated(By.id("q")))
+        .sendKeys("Gordon Fraser" + Keys.ENTER);
+  }
+
+  @Override
+  public void e_semesterTerminPlan() {
+    waiter.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Semesterterminplan"))).click();
+  }
+
+  @Override
+  public void v_Studierende() {
+    String linkText = "Semesterterminplan";
+    waiter.until(ExpectedConditions.titleContains("Studierende"));
+    waiter.until(ExpectedConditions.presenceOfElementLocated(By.linkText(linkText)));
+    String href = driver.findElement(By.linkText(linkText)).getAttribute("href");
+    assertThat(href, containsString("termine-und-fristen"));
+  }
+
+  @Override
+  public void e_back() {
+    waiter.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='top']/div/div[2]/nav/ul/li[1]/a"))).click();
   }
 }
