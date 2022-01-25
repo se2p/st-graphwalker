@@ -10,45 +10,46 @@
     <name>GraphWalker Uni Passau Example</name>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
+        <graphwalker.version>4.3.1</graphwalker.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.graphwalker</groupId>
             <artifactId>graphwalker-core</artifactId>
-            <version>4.3.0</version>
+            <version>${graphwalker.version}</version>
         </dependency>
         <dependency>
             <groupId>org.graphwalker</groupId>
             <artifactId>graphwalker-io</artifactId>
-            <version>4.3.0</version>
+            <version>${graphwalker.version}</version>
         </dependency>
         <dependency>
             <groupId>org.graphwalker</groupId>
             <artifactId>graphwalker-java</artifactId>
-            <version>4.3.0</version>
+            <version>${graphwalker.version}</version>
         </dependency>
         <dependency>
             <groupId>org.graphwalker</groupId>
             <artifactId>graphwalker-maven-plugin</artifactId>
-            <version>4.3.0</version>
+            <version>${graphwalker.version}</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>4.1.1</version>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>4.3.1</version>
+            <version>5.0.3</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.1</version>
+            <version>4.13.2</version>
         </dependency>
         <dependency>
             <groupId>org.hamcrest</groupId>
@@ -58,7 +59,7 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.8.6</version>
+            <version>2.8.9</version>
         </dependency>
     </dependencies>
 
@@ -67,7 +68,7 @@
             <plugin>
                 <groupId>org.graphwalker</groupId>
                 <artifactId>graphwalker-maven-plugin</artifactId>
-                <version>4.3.0</version>
+                <version>${graphwalker.version}</version>
                 <executions>
                     <execution>
                         <id>generate-sources</id>
