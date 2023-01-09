@@ -10,7 +10,8 @@ import org.graphwalker.java.annotation.BeforeExecution;
 import org.graphwalker.java.annotation.GraphWalker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -22,7 +23,10 @@ public class UniPassauExecutor extends ExecutionContext implements uni {
 
   @BeforeExecution
   public void setup() {
-    WebDriverManager.firefoxdriver().setup();
+    WebDriverManager.chromedriver().setup();
+    ChromeOptions options = new ChromeOptions();
+    driver = new ChromeDriver(options);
+    waiter = new WebDriverWait(driver, Duration.ofSeconds(5));
   }
 
   @AfterExecution
@@ -65,8 +69,6 @@ public class UniPassauExecutor extends ExecutionContext implements uni {
 
   @Override
   public void e_goToMainPage() {
-    driver = new FirefoxDriver();
-    waiter = new WebDriverWait(driver, Duration.ofSeconds(10));
     driver.get("https://www.uni-passau.de");
   }
 

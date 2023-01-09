@@ -12,7 +12,7 @@
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
-        <graphwalker.version>4.3.1</graphwalker.version>
+        <graphwalker.version>4.3.2</graphwalker.version>
     </properties>
 
     <dependencies>
@@ -39,12 +39,12 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.1.1</version>
+            <version>4.7.2</version>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.0.3</version>
+            <version>5.3.1</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
